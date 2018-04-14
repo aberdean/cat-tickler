@@ -1,0 +1,48 @@
+body {
+ 	background: rgb(190, 147, 197); /* fallback for old browsers */
+ 	background: -webkit-linear-gradient(
+ 		left, rgba(190,147, 197, 0.5), rgba(123, 198, 204, 0.5));
+ 	background: -o-linear-gradient(
+ 		left, rgba(190,147, 197, 0.5), rgba(123, 198, 204, 0.5));
+ 	/* Chrome 10-25, Safari 5.1-6 */ /* W3C, IE 10+/ Edge, Firefox 16+,
+	 * Chrome 26+, Opera 12+, Safari 7+ 
+	 */
+ 	background: linear-gradient(
+ 		to right, rgba(190,147, 197, 0.5), rgba(123, 198, 204, 0.5)); 
+ 	font-family: 'Lato', sans-serif;
+ 	text-align: center;
+ } /* #be93c5 #7bc6cc */
+
+h1 {
+	font-family: 'Merienda', cursive;
+	font-size: 3em;
+	color: red;
+}
+
+img {
+	border: 15px solid #37474f;
+	border-radius: 8px;
+	max-width: 100%;
+	height: auto;
+	padding: 5px;
+}
+
+img:hover {
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
+}
+
+.fa-layers {
+	margin-bottom: 20px;
+	margin-top: 10px;
+}
+
+.fa-heart {
+	width: 400px;
+	height: auto;
+	color: red;
+}
+
+.fa-layers-counter {
+	background: #00c853;
+}
