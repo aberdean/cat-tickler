@@ -22,7 +22,8 @@ h1 {
 img {
 	border: 15px solid #37474f;
 	border-radius: 8px;
-	max-width: 100%;
+	width: 50%;
+	max-width: 500px;
 	height: auto;
 	padding: 5px;
 }
@@ -30,6 +31,17 @@ img {
 img:hover {
 	-webkit-transform: scaleX(-1);
 	transform: scaleX(-1);
+}
+
+ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+li {
+	list-style-type: none;
+	font-size: 2em;
 }
 
 .fa-layers {
@@ -45,4 +57,13 @@ img:hover {
 
 .fa-layers-counter {
 	background: #00c853;
+}
+
+.counters {
+	display: inline;
+}
+
+.names {
+	font-size: 0.6em;
+	margin-bottom: 60px;
 }
