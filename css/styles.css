@@ -24,6 +24,8 @@ img {
 	border-radius: 8px;
 	width: 50%;
 	max-width: 500px;
+	min-width: 160px;
+	min-height: 160px;
 	height: auto;
 	padding: 5px;
 }
@@ -42,6 +44,52 @@ ul {
 li {
 	list-style-type: none;
 	font-size: 2em;
+}
+
+section {
+	display: flex;
+	flex-wrap: wrap-reverse;
+}
+
+.admin {
+	padding: 20px;
+	background: rgba(0, 0, 0, 20%);
+	margin-top: 20px;
+	margin-left: 20px;
+	min-width: 200px;
+}
+
+.admin-area {
+	display: none;
+}
+
+.input {
+	padding-bottom: 10px;
+}
+
+form {
+	padding-top: 10px;
+	flex: 1;
+}
+
+button {
+	font-family: 'Lato', sans-serif;
+	background: #f44336;
+	font-size: 1.4em;
+	padding: 10px;
+	color: #000;
+	border-radius: 4px;
+	border: none;
+	margin-top: 20px;
+}
+
+button:hover {
+	background: #ba000d;
+	color: #fff;
+}
+
+.cat {
+	flex: 2;
 }
 
 .fa-layers {

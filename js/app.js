@@ -1,5 +1,6 @@
 /* Code adapted from
  * https://github.com/udacity/ud989-cat-clicker-premium-vanilla
+ * Images from https://unsplash.com/search/photos/cat
  */
 
 
@@ -53,6 +54,7 @@ const controller = {
         // tell our views to initialize
         catListView.init();
         catView.init();
+        adminView.init();
     },
 
     getCurrentCat: function() {
@@ -71,6 +73,23 @@ const controller = {
     // increments the counter for the currently-selected cat
     incrementCounter: function() {
         model.currentCat.counter += 1;
+        catView.render();
+    },
+
+    updateModel: function() {
+        // change cat attributes
+        if (adminView.catName.value !== "") {
+            model.currentCat.name = adminView.catName.value;
+        }
+        if (adminView.catUrl.value !== "") {
+            model.currentCat.image = adminView.catUrl.value;
+        }
+        if (adminView.imgDescription.value !== "") {
+            model.currentCat.alt = adminView.imgDescription.value;
+        }
+        if (adminView.clicks.value !== "") {
+            model.currentCat.counter = adminView.clicks.value;
+        }
         catView.render();
     }
 };
@@ -142,12 +161,59 @@ const catListView = {
                 return function() {
                     controller.setCurrentCat(catCopy);
                     catView.render();
+                    // update the cat attributes in the admin area
+                    // this is useful when clicking on a new cat
+                    // while the admin area is already displayed
+                    adminView.render();
                 };
             })(cat));
 
             // finally, add the element to the list
             this.catListElem.appendChild(elem);
         }
+    }
+};
+
+const adminView = {
+    init: function() {
+        // store DOM elements for the buttons
+        this.admin = document.getElementById("admin");
+        this.cancel = document.getElementById("cancel");
+        this.submit = document.getElementById ("submit");
+        this.adminArea = document.querySelector(".admin-area");
+
+        this.admin.addEventListener('click', function() {
+            // show the admin area
+            adminView.adminArea.style.display = "block";
+            adminView.render();
+        });
+
+        this.cancel.addEventListener('click', function() {
+            // hide the admin area
+            adminView.adminArea.style.display = "none";
+        });
+
+        this.submit.addEventListener('click', function() {
+            // set the new attributes
+            controller.updateModel();
+        });
+
+        this.render();
+    },
+
+    render: function() {
+        // get current cat
+        let cat = controller.getCurrentCat();
+        // store DOM element for the form
+        this.catName = document.getElementById("name");
+        this.catUrl = document.getElementById("url");
+        this.imgDescription = document.getElementById("alt");
+        this.clicks = document.getElementById("clicks");
+        // fill in form with elements from current cat
+        this.catName.placeholder = cat.name;
+        this.catUrl.placeholder = cat.image;
+        this.imgDescription.placeholder = cat.alt;
+        this.clicks.placeholder = cat.counter;
     }
 };
 

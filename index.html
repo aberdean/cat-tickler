@@ -16,16 +16,63 @@
 			<ul class="names"></ul>
 		</div>
 
-		<div class="cat">
-			<h2 class="name">Juliet</h2>
-			<div class="counter fa-3x">
-				<span class="fa-layers fa-fw">
-					<i class="fas fa-heart"></i>
-					<span class="fa-layers-counter">0</span>
-				</span>
+		<section>
+			<div class="admin">
+					<button id="admin" type="button">Admin</button>
+				<div class="admin-area">
+					<form>
+						<div class="change-name">
+							<label for="name"> Name:
+								<div class="input">
+									<input id="name" type="text" value=""
+										   placeholder="" autofocus>
+								</div>
+							</label>
+						</div>
+						<div class="change-url">
+							<label for="url"> URL:
+								<div class="input">
+									<input id="url" type="url" value=""
+									       placeholder="">
+								</div>
+							</label>
+						</div>
+						<div class="change-alt">
+							<label for="alt"> Image Description:
+								<div class="input">
+									<input id="alt" type="text" value=""
+									       placeholder="">
+								</div>
+							</label>
+						</div>
+						<div class="change-clicks">
+							<label for="clicks"> Number of clicks:
+								<div class="input">
+									<input id="clicks" type="number" value=""
+									       placeholder="">
+								</div>
+							</label>
+						</div>
+						<div class="buttons">
+							<button id="cancel" type="reset">Cancel</button>
+							<button id="submit" type="submit">Submit</button>
+						</div>
+					</form>
+				</div>
 			</div>
-			<img src="" alt="">
-		</div>
+
+			<div class="cat">
+				<h2 class="name">Juliet</h2>
+				<div class="counter fa-3x">
+					<span class="fa-layers fa-fw">
+						<i class="fas fa-heart"></i>
+						<span class="fa-layers-counter">0</span>
+					</span>
+				</div>
+				<img src="" alt="">
+			</div>
+		</section>
+
 	</main>
 
 	<script src="js/app.js"></script>
