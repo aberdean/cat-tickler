@@ -74,24 +74,36 @@ const controller = {
     incrementCounter: function() {
         model.currentCat.counter += 1;
         catView.render();
+        // increment admin area placeholder
+        // needed when clicking on a cat while the admin area is visible
+        adminView.render();
     },
 
     updateModel: function() {
         // change cat attributes
         if (adminView.catName.value !== "") {
             model.currentCat.name = adminView.catName.value;
+            // when the name is changed, change it also in the list of names
+            catListView.render();
+            adminView.catName.value = "";
         }
         if (adminView.catUrl.value !== "") {
             model.currentCat.image = adminView.catUrl.value;
+            adminView.catUrl.value = "";
         }
         if (adminView.imgDescription.value !== "") {
             model.currentCat.alt = adminView.imgDescription.value;
+            adminView.imgDescription.value = "";
         }
         if (adminView.clicks.value !== "") {
-            model.currentCat.counter = adminView.clicks.value;
+            model.currentCat.counter = parseInt(adminView.clicks.value);
+            adminView.clicks.value = "";
         }
         catView.render();
+        adminView.render();
     }
+
+
 };
 
 
@@ -193,7 +205,8 @@ const adminView = {
             adminView.adminArea.style.display = "none";
         });
 
-        this.submit.addEventListener('click', function() {
+        this.submit.addEventListener('click', function(event) {
+            event.preventDefault();
             // set the new attributes
             controller.updateModel();
         });
