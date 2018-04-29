@@ -1,5 +1,9 @@
 # Cat Tickler
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2a8464ea282e467fa7ad55a8d8e5b944)](https://www.codacy.com/app/aberdean/cat-tickler)
+[![Maintainability](https://api.codeclimate.com/v1/badges/307b21cac6f4b88242b3/maintainability)](https://codeclimate.com/github/aberdean/cat-tickler/maintainability)
+
+
 Cat Tickler - A conceptual exercise for the Udacity Front-End Nanodegree
 
 ## Introduction
