@@ -88,17 +88,29 @@ const controller = {
             adminView.catName.value = "";
         }
         if (adminView.catUrl.value !== "") {
-            model.currentCat.image = adminView.catUrl.value;
+            let img = `${adminView.catUrl.value}`;
+            let request = new Request(img);
+            // check if image exists
+            fetch(request).then(function(response) {
+                if (response.status === 200) {
+                    model.currentCat.image = img;
+                    catView.render();
+                    adminView.render();
+                } else {
+                    adminView.catUrl.placeholder = 'Sorry, no image available';
+                }
+            });
             adminView.catUrl.value = "";
         }
         if (adminView.imgDescription.value !== "") {
             model.currentCat.alt = adminView.imgDescription.value;
             adminView.imgDescription.value = "";
         }
-        if (adminView.clicks.value !== "") {
+        if (adminView.clicks.value !== "" &&
+                             parseInt(adminView.clicks.value) >= 0) {
             model.currentCat.counter = parseInt(adminView.clicks.value);
-            adminView.clicks.value = "";
         }
+        adminView.clicks.value = "";
         catView.render();
         adminView.render();
     }
@@ -114,7 +126,7 @@ const catView = {
     init: function() {
         // store pointers to our DOM elements for easy access later
         this.catElem = document.querySelector('.cat');
-        this.catNameElem = document.querySelector('.name');
+        this.catNameElem = document.querySelector('.cat-name');
         this.catImageElem = document.querySelector('img');
         this.countElem = document.querySelector('.fa-layers-counter');
 
@@ -163,7 +175,8 @@ const catListView = {
             cat = cats[i];
 
             // make a new cat list item and set its text
-            elem = document.createElement('li');
+            elem = document.createElement('button');
+            elem.classList.add('name');
             elem.textContent = cat.name;
 
             // on click, setCurrentCat and render the catView
